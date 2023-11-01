@@ -30,6 +30,28 @@ async function register(req, res) {
         return res.status(500).json({ message: error.message });
     }
 }
+
+async function login(req, res) {
+    try {
+        const username = req.body.username;
+        const password = req.body.password;
+        const allUsers = await readJSON('utils/users.json');
+        var validCredentials = false;
+        for (var i = 0; i < allUsers.length; i++) {
+            var currUser = allUsers[i];
+            if (currUser.username == username && currUser.password == password)
+                validCredentials = true;
+        }
+        if (validCredentials) {
+            return res.status(201).json({ message: 'Login successful!' });
+        } else {
+            return res.status(500).json({ message: 'Invalid credentials!' });
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
-    readJSON, writeJSON, register
+    readJSON, writeJSON, register, login
 };
