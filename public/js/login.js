@@ -12,12 +12,13 @@ function login() {
     request.setRequestHeader('Content-Type', 'application/json');
     request.onload = function () {
         response = JSON.parse(request.responseText);
-        console.log(response)
-        if (response.message == "Login successful!") {
-            sessionStorage.setItem("username", jsonData.username);
+        console.log(response);
+        if (response.token) {
+            // Save the token to localStorage
+            localStorage.setItem('token', response.token);
+            // Redirect to home page or perform other actions
             window.location.href = 'home.html';
-        }
-        else {
+        } else {
             document.getElementById("error").innerHTML = 'Invalid credentials!';
         }
     };

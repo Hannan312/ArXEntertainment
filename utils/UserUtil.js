@@ -1,4 +1,5 @@
 const { User } = require('../models/User');
+const jwt = require('jsonwebtoken');
 const fs = require('fs').promises;
 async function readJSON(filename) {
     try {
@@ -36,22 +37,26 @@ async function login(req, res) {
         const username = req.body.username;
         const password = req.body.password;
         const allUsers = await readJSON('utils/users.json');
-        var validCredentials = false;
+
         for (var i = 0; i < allUsers.length; i++) {
             var currUser = allUsers[i];
-            if (currUser.username == username && currUser.password == password)
-                validCredentials = true;
+            if (currUser.username == username && currUser.password == password) {
+                // Generate JWT token
+                const token = jwt.sign({ username: currUser.username }, 'your_secret_key', { expiresIn: '1h' });
+                return res.status(201).json({ message: 'Login successful!', token: token });
+            }
         }
-        if (validCredentials) {
-            return res.status(201).json({ message: 'Login successful!' });
-        } else {
-            return res.status(500).json({ message: 'Invalid credentials!' });
-        }
+
+        return res.status(401).json({ message: 'Invalid credentials!' });
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
 }
 
+
+
+
+
 module.exports = {
-    readJSON, writeJSON, register, login
+    readJSON, writeJSON, register, login, 
 };

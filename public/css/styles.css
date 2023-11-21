@@ -1,11 +1,107 @@
 /* style.css */
 
 body {
-    background-color: #4077c0; /* Replace with your preferred color code */
+    background-color: #4077c0;
+    /* Replace with your preferred color code */
 }
+
 img {
     border-radius: 50%;
 }
+
 #form-section {
-    margin-top: 20px; /* Adjust the value to add more or less space */
+    margin-top: 20px;
+    /* Adjust the value to add more or less space */
 }
+
+.banner h1 {
+    color: white;
+}
+
+h1 {
+    font-weight: bold;
+    margin-bottom: 25px;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #d19a03;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
+
+p {
+    text-align: justify;
+}
+
+.navbar {
+    background-color: #252525;
+
+}
+
+.navbar-toggler {
+    color: #ffffff;
+}
+
+.nav-link {
+    padding: 10px;
+    margin: 0px 25px;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+menu {
+    padding: 10px;
+
+
+}
+
+.nav {
+    color: #000000;
+    text-align: left;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  .banner {
+    position: relative;
+    color: #ffffff;
+    background-color: transparent;
+    padding: 45px;
+  }
+  .justifycenter {
+    justify-content: center;
+  }
+  
+  .justifytext {
+    text-align: justify;
+  }
+  .about {
+    position: relative;
+    background-color: #252525;
+    padding: 45px;
+    color: #ffffff;
+  }
+  .books h2 {
+    color: white;
+}
+
+ 

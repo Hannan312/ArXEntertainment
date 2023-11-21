@@ -30,8 +30,16 @@
                             </div>
                             <p align="center" id="error" class="text-danger"></p>
                             <p align="center">
-                                <button type="reset" class="btn btn-
-primary">Reset</button>
+                                <button type="button" class="btn btn-primary"
+                                    onclick="redirectToResetPassword()">Reset</button>
+
+                                <script>
+                                    function redirectToResetPassword() {
+                                        // Assuming reset-password.html is in the same directory
+                                        window.location.href = 'reset-password.html';
+                                    }
+                                </script>
+
                                 <button type="button" class="btn btn-primary" onclick="login()">Login</button>
                             </p>
                             <p align="center">
