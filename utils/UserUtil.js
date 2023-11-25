@@ -17,18 +17,21 @@ async function writeJSON(object, filename) {
 }
 async function register(req, res) {
     try {
-        const username = req.body.username
+        const username = req.body.username;
         const email = req.body.email;
         const password = req.body.password;
+
         if (!email.includes('@') || !email.includes('.') || password.length < 6) {
-            return res.status(500).json({ message: 'Validation error' });
-        } else {
-            const newUser = new User(username, email, password);
-            const updatedUsers = await writeJSON(newUser, 'utils/users.json');
-            return res.status(201).json(updatedUsers);
+            return res.status(400).json({ message: 'Validation error' });
         }
+
+        const newUser = new User(username, email, password);
+        const updatedUsers = await writeJSON(newUser, 'utils/users.json');
+        
+        return res.status(201).json(updatedUsers);
     } catch (error) {
-        return res.status(500).json({ message: error.message });
+        console.error('Registration error:', error);
+        return res.status(500).json({ message: 'Internal Server Error' });
     }
 }
 
