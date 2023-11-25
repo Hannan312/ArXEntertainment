@@ -1,8 +1,14 @@
 /* style.css */
 
 body {
-    background-color: #4077c0;
-    /* Replace with your preferred color code */
+
+    background-color: #4077c0; /* Replace with your preferred color code */
+}
+img {
+    border-radius: 50%;
+}
+#form-section {
+    margin-top: 20px; /* Adjust the value to add more or less space */
 }
 
 img {
